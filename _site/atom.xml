@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Ruben Afonso</title>
+ <link href="http://rubenaf.com/atom.xml" rel="self"/>
+ <link href="http://rubenaf.com/"/>
+ <updated>2017-05-18T07:57:31+01:00</updated>
+ <id>http://rubenaf.com</id>
+ <author>
+   <name>Ruben Afonso</name>
+   <email>rbfrancos@gmail.com</email>
+ </author>
+
+ 
+
+</feed>
