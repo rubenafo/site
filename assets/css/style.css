@@ -220,10 +220,6 @@ li .icon {
   #header.header-top h1 {
     font-size: 26px;
   }
-
-  #header .social-links a {
-    font-size: 15px;
-  }
 }
 
 /**
@@ -247,6 +243,10 @@ li .icon {
   }
   .navbar ul {
     display: none;
+  }
+
+  #header .social-links a {
+    font-size: 15px;
   }
 }
 
