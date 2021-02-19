@@ -38,17 +38,17 @@ body::before {
 }
 
 a {
-  color: #18d26e;
   text-decoration: none;
 }
 
 a:hover {
-  color: #35e888;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
+  width: 100%;
+  text-align: left;
 }
 
 /*--------------------------------------------------------------
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 {
-  font-size: 48px;
+  font-size: 60px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -101,8 +101,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links {
-  margin-top: 40px;
+  margin-top: 80px;
+  width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #header .social-links li{
@@ -118,9 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   line-height: 1;
   border-radius: 100%;
-  margin: 30px;
-  width: 50px;
-  height: 50px;
   color: #e6725a;
   border:none;
 }
@@ -128,10 +128,44 @@ h1, h2, h3, h4, h5, h6 {
 #header .social-links a:hover {
   vertical-align: center;
   justify-content: center;
-  font-size: 50px;
-  color: #df2c08;
-
+  color: #ff2a00;
 }
+
+
+li .icon {
+  list-style-type: none;
+  padding: 30px;
+}
+
+.icon {
+  text-decoration: none;
+}
+
+.icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+.icon > .label {
+  display: none;
+}
+
+.icon.solid:before {
+  font-weight: 900;
+}
+
+.icon.brands:before {
+  font-family: 'Font Awesome 5 Brands';
+}
+
 
 @media (max-width: 992px) {
   #header h1 {
@@ -293,7 +327,7 @@ section .container {
 }
 
 .section-title h2 {
-  font-size: 14px;
+  font-size: 4px;
   font-weight: 500;
   padding: 0;
   line-height: 1px;
@@ -309,7 +343,6 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #4ceb95;
   margin: 4px 10px;
 }
 
@@ -354,39 +387,3 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
-
-li .icon {
-    list-style-type: none;
-}
-
-.icon {
-  text-decoration: none;
-  position: relative;
-}
-
-  .icon:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    text-transform: none !important;
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 400;
-  }
-
-  .icon > .label {
-    display: none;
-  }
-
-  .icon.solid:before {
-    font-weight: 900;
-  }
-
-  .icon.brands:before {
-    font-family: 'Font Awesome 5 Brands';
-  }
-
-  
