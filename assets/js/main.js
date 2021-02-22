@@ -1,247 +1,212 @@
-/**
-* Template Name: Personal - v4.0.1
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+/*
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-(function() {
-  "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+(function($) {
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
+	var $window = $(window),
+		$body = $('body'),
+		$wrapper = $('#wrapper'),
+		$main = $('#main'),
+		$panels = $main.children('.panel'),
+		$nav = $('#nav'), $nav_links = $nav.children('a');
 
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
+	// Breakpoints.
+		breakpoints({
+			xlarge:  [ '1281px',  '1680px' ],
+			large:   [ '981px',   '1280px' ],
+			medium:  [ '737px',   '980px'  ],
+			small:   [ '361px',   '736px'  ],
+			xsmall:  [ null,      '360px'  ]
+		});
 
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+	// Nav.
+		$nav_links
+			.on('click', function(event) {
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
+				var href = $(this).attr('href');
 
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
+				// Not a panel link? Bail.
+					if (href.charAt(0) != '#'
+					||	$panels.filter(href).length == 0)
+						return;
 
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
+				// Prevent default.
+					event.preventDefault();
+					event.stopPropagation();
 
-      this.classList.add('active')
+				// Change panels.
+					if (window.location.hash != href)
+						window.location.hash = href;
 
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
+			});
 
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
+	// Panels.
 
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
+		// Initialize.
+			(function() {
 
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
+				var $panel, $link;
 
-      scrollto(this.hash)
-    }
-  }, true)
+				// Get panel, link.
+					if (window.location.hash) {
 
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
+				 		$panel = $panels.filter(window.location.hash);
+						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
 
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
+					}
 
-        header.classList.add('header-top')
+				// No panel/link? Default to first.
+					if (!$panel
+					||	$panel.length == 0) {
 
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
+						$panel = $panels.first();
+						$link = $nav_links.first();
 
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
+					}
 
-        scrollto(window.location.hash)
-      }
-    }
-  });
+				// Deactivate all panels except this one.
+					$panels.not($panel)
+						.addClass('inactive')
+						.hide();
 
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
+				// Activate link.
+					$link
+						.addClass('active');
 
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
+				// Reset scroll.
+					$window.scrollTop(0);
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
+			})();
 
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
+		// Hashchange event.
+			$window.on('hashchange', function(event) {
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+				var $panel, $link;
 
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
+				// Get panel, link.
+					if (window.location.hash) {
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
-    }
+				 		$panel = $panels.filter(window.location.hash);
+						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
 
-  });
+						// No target panel? Bail.
+							if ($panel.length == 0)
+								return;
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+					}
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+				// No panel/link? Default to first.
+					else {
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+						$panel = $panels.first();
+						$link = $nav_links.first();
 
-})()
+					}
+
+				// Deactivate all panels.
+					$panels.addClass('inactive');
+
+				// Deactivate all links.
+					$nav_links.removeClass('active');
+
+				// Activate target link.
+					$link.addClass('active');
+
+				// Set max/min height.
+					$main
+						.css('max-height', $main.height() + 'px')
+						.css('min-height', $main.height() + 'px');
+
+				// Delay.
+					setTimeout(function() {
+
+						// Hide all panels.
+							$panels.hide();
+
+						// Show target panel.
+							$panel.show();
+
+						// Set new max/min height.
+							$main
+								.css('max-height', $panel.outerHeight() + 'px')
+								.css('min-height', $panel.outerHeight() + 'px');
+
+						// Reset scroll.
+							$window.scrollTop(0);
+
+						// Delay.
+							window.setTimeout(function() {
+
+								// Activate target panel.
+									$panel.removeClass('inactive');
+
+								// Clear max/min height.
+									$main
+										.css('max-height', '')
+										.css('min-height', '');
+
+								// IE: Refresh.
+									$window.triggerHandler('--refresh');
+
+								// Unlock.
+									locked = false;
+
+							}, (breakpoints.active('small') ? 0 : 500));
+
+					}, 250);
+
+			});
+
+	// IE: Fixes.
+		if (browser.name == 'ie') {
+
+			// Fix min-height/flexbox.
+				$window.on('--refresh', function() {
+
+					$wrapper.css('height', 'auto');
+
+					window.setTimeout(function() {
+
+						var h = $wrapper.height(),
+							wh = $window.height();
+
+						if (h < wh)
+							$wrapper.css('height', '100vh');
+
+					}, 0);
+
+				});
+
+				$window.on('resize load', function() {
+					$window.triggerHandler('--refresh');
+				});
+
+			// Fix intro pic.
+				$('.panel.intro').each(function() {
+
+					var $pic = $(this).children('.pic'),
+						$img = $pic.children('img');
+
+					$pic
+						.css('background-image', 'url(' + $img.attr('src') + ')')
+						.css('background-size', 'cover')
+						.css('background-position', 'center');
+
+					$img
+						.css('visibility', 'hidden');
+
+				});
+
+		}
+
+})(jQuery);
