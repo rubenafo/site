@@ -1,69 +1,293 @@
-<!DOCTYPE HTML>
-<!--
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>rubenafo.com</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-D41WVD1633"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="view-transition" content="same-origin">
+  <title>Ruben Afonso — AI & Data in Financial Services</title>
+  <meta name="description" content="Ruben Afonso — AI, data architecture, and analytics for financial services at Amazon Web Services. Specializing in agentic platforms, data strategy, and AI governance.">
+  <link rel="canonical" href="https://www.rubenafo.com">
+  <meta property="og:title" content="Ruben Afonso — AI & Data in Financial Services">
+  <meta property="og:description" content="AI, data architecture, and analytics for financial services at Amazon Web Services.">
+  <meta property="og:url" content="https://www.rubenafo.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ruben Afonso — AI & Data in Financial Services">
+  <meta name="twitter:description" content="AI, data architecture, and analytics for financial services at Amazon Web Services.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ruben Afonso",
+    "url": "https://www.rubenafo.com",
+    "jobTitle": "AI, Data & Analytics Specialist",
+    "worksFor": { "@type": "Organization", "name": "Amazon Web Services" },
+    "sameAs": [
+      "https://www.linkedin.com/in/rubenafonso/",
+      "https://x.com/rubenafo"
+    ]
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D41WVD1633"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D41WVD1633');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;1,300&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-			gtag('config', 'G-D41WVD1633');
-		</script>
-	</head>
-	<body class="is-preload">
+    :root {
+      --teal: #FFFBF7;
+      --cyan: #56CCF2;
+      --yellow: #FFD23F;
+      --orange: #FF6B8A;
+      --sienna: #FF3B4F;
+      --cream: #FEFAF6;
+    }
 
-		<!-- Wrapper-->
-			<div id="wrapper">
+    body {
+      background: #2D2B3D;
+      color: #fff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 48px;
+    }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<a href="https://rubenafo.com" class="icon solid fa-home"><span>Home</span></a>
-						<a href="https://www.linkedin.com/in/rubenafonso/" class="icon brands fa-linkedin" target="_blank"><span>Network</span></a>
-						<a href="https://twitter.com/rubenafo" class="icon brands fa-twitter" target="_blank"><span>Tweets</span></a>
-						<a href="https://medium.com/@rubenafo" class="icon brands fa-medium" target="_blank"><span>Posts</span></a>
-						<a href="https://github.com/rubenafo" class="icon brands fa-github" target="_blank"><span>Coding</span></a>
-					</nav>
+    .color-strip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      height: 4px;
+      z-index: 100;
+    }
 
-				<!-- Main -->
-					<div id="main">
+    .color-strip span { flex: 1; }
 
-						<!-- Me -->
-							<article id="home" class="panel intro">
-								<header>
-									<h1>Ruben Afonso</h1>
-									<h3>Financial Services. Analytics. AI/ML.</h3>
-									
-								</header>
-								<a class="jumplink pic">
-									<img class="me" src="images/rubenafo.jpg" alt="" />
-								</a>
-							</article>
-					</div>
+    .profile {
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
 
-				<!-- Footer -->
-					<div id="footer">
-						<ul class="copyright">
-							<li>&copy; rubenafo.com - 2024 AD</li><li><a href="http://html5up.net">html5up</a></li>
-						</ul>
-					</div>
-			</div>
+    .profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--cyan);
+      margin-bottom: 16px;
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    .profile h1 {
+      font-family: 'Bitter', serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      text-wrap: balance;
+    }
 
-	</body>
+    .profile .title {
+      font-family: 'Bitter', serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--yellow);
+      margin-bottom: 14px;
+    }
+
+    .bio-section {
+      text-align: left;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+
+    .bio-section h2 {
+      font-family: 'Bitter', serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--yellow);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .bio-section p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      max-width: 420px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      text-decoration: none;
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      padding: 12px 14px;
+      min-height: 44px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .link-btn:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 2px;
+    }
+
+    .link-btn svg { flex-shrink: 0; }
+
+    .link-btn.secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .link-btn.secondary:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .link-btn:active {
+      transform: translateY(1px);
+      opacity: 0.85;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 28px 16px 32px;
+      }
+
+      .profile img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .profile h1 {
+        font-size: 1.5rem;
+      }
+
+      .bio-section {
+        padding: 14px 16px;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+
+      .link-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) {
+      animation: 0.3s ease-out both vt-fade-out;
+    }
+    ::view-transition-new(root) {
+      animation: 0.3s ease-in both vt-fade-in;
+    }
+    @keyframes vt-fade-out { to { opacity: 0; transform: scale(0.98); } }
+    @keyframes vt-fade-in { from { opacity: 0; transform: scale(1.02); } }
+
+    @supports (animation-timeline: view()) {
+      .profile, .links, .link-btn, .widget, .section,
+      .polaroid, .bubble, .flip-card, .panel, .article-body,
+      .info-box, .contact-card, .connect-card {
+        animation: sdReveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+      }
+      @keyframes sdReveal {
+        from { opacity: 0.2; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="color-strip" aria-hidden="true">
+    <span style="background: var(--cyan)"></span>
+    <span style="background: var(--yellow)"></span>
+    <span style="background: var(--orange)"></span>
+    <span style="background: var(--sienna)"></span>
+  </div>
+  <main>
+  <div class="profile">
+    <img src="images/photo.png" alt="Ruben Afonso speaking at a conference" />
+    <h1>Ruben Afonso</h1>
+    <p class="title">AI, Data, Financial Services</p>
+    <div class="links">
+    <a href="https://www.linkedin.com/in/rubenafonso/" class="link-btn secondary" target="_blank" rel="noopener">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Connect
+    </a>
+      <a href="https://x.com/rubenafo" class="link-btn secondary" target="_blank" rel="noopener">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Follow
+    </a>
+    <!--
+    <a href="https://github.com/rubenafo" class="link-btn secondary" target="_blank" rel="noopener">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+    </a>
+    -->
+  </div>
+    <section class="bio-section">
+      <h2>🎯 What I do</h2>
+      <p>
+      AI and data architecture in financial services, enabling organizations to drive practical innovation.
+      </p>
+    </section>
+    <section class="bio-section">
+      <h2>🎢 Areas of interest</h2>
+      <p><strong style="color: var(--cyan)">People</strong> — Growing engineering cultures where AI and data fluency become second nature.</p>
+      <p><strong style="color: var(--cyan)">Processes</strong> — Data strategy and AI governance frameworks to move fast in regulated environments.</p>
+      <p><strong style="color: var(--cyan)">Technology</strong> — Enterprise-grade agentic platforms, data architectures, and cloud-native analytics.</p>
+    </section>
+  </div>
+  </main>
+  <footer>&copy; 2026 Ruben Afonso</footer>
+</body>
 </html>
