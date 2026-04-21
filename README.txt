@@ -1,4 +1,4 @@
 # site
-Minimalist site for rubenaf.com
+Minimalist site for rubenafo.com
 
-Astral by HTML5 UP - html5up.net | @ajlkn
+Updated on 2026!
